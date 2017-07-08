@@ -1,6 +1,6 @@
 ---
 title: "Análisis de las condiciones del océano frente a Perú durante mi primer año de vida"
-author: "Su nombre"
+author: "Juan_Guerra"
 output: html_document
 ---
 

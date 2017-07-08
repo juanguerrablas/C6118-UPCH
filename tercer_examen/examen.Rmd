@@ -2,13 +2,71 @@
 title: "Análisis de las condiciones del océano frente a Perú durante mi primer año de vida"
 author: "Juan_Guerra"
 output: html_document
----
+
+```{r}
+devtools::install_github("roliveros-ramos/kali")
+```
+
+
+```{r}
+library(ncdf4)
+library(fields)
+library(maptools)
+library(ncdf4)
+library(fields)
+library(kali)
+```
 
 ## Introducción
 
 ## Materiales y métodos
 
+## VARIABLES AMBIENTALES 
+
+```{r}
+nc1 = nc_open("datos/sst.nc4")
+nc2 = nc_open("datos/sss.nc4")
+nc3 = nc_open("datos/lphy.nc4")
+nc4 = nc_open("datos/sphy.nc4")
+nc5 = nc_open("datos/ph.nc4")
+```
+
+```{r}
+nc1
+nc2
+nc3
+nc4
+nc5
+```
+
+
+
+#Temperatura superficial del mar
+
+```{r}
+nc1 = nc_open("datos/sst.nc4")
+sst = ncvar_get(nc1, "to")
+lat = ncvar_get(nc1, "latitude")
+lon = ncvar_get(nc1, "longitude") - 360
+```
+
+
+```{r}
+sst_mean=apply(sst[,,1:552], MARGIN = c(1,2), FUN = mean, na.rm = TRUE)
+sst_1991=apply(sst[,,349:360], MARGIN = c(1,2), FUN = mean, na.rm = TRUE)
+anom_sst=sst_mean-sst_1991
+image.map(lon, lat, anom_sst)
+title("Anomalia de la SST año 1988")
+```
+
 ## Resultados y discusión
+
+
+
+```{r}
+image.map(lon, lat, sst[,,1])
+```
+
 
 ## Conclusiones
 

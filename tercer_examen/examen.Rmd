@@ -17,11 +17,20 @@ library(fields)
 library(kali)
 ```
 
-## Introducción
+##I Introducción
 
-## Materiales y métodos
+Los diferentes procesos biológicos y ecológicos en el océano, son determinados por varios drivers ambientales en diferente escala espacio temporal (Haury, et. al., 1978).
+Por ejemplo la temperatura superficial del mar, la salinidad, los vientos afectan directa e indirectamente la productividad primaria, y la distribución espacial de diferentes especies u organismos. Los organismos presentan rangos óptimos y no óptimos de su presencia en función de las variables ambientales, “llamada Ventana ambiental” siendo necesario el entendimiento de dicha relación (Cury and Roy, 1989).
+ Se justifica entonces la necesidad de caracterizar el ambiente, por lo que el objetivo del presente estudio es caracterizar y analizar la temperatura superficial del mar, la salinidad y la clorofila del año 1988, como punto de partida para entender la variación espacial anual, estacional de la productividad, mediante un proxy que es la concentración de clorofila a, del año 1988, post colapso de las pesquerías de la productividad (Pennington, et. Al., 2006)
 
-## VARIABLES AMBIENTALES 
+
+
+##II Materiales y métodos
+
+# 2.1 Materiales 
+# 2.1.1 Variables Ambientales
+Las variables para el análisis de las condiciones oceanográficas, que incluye datos de temperatura superficial del mar (sst), salinidad superficial del mar (sss) proporcionada del archivo netCDF Network Common Data Form a partir de Unidata que es parte de la Corporación Universitaria para la Investigación Atmosférica (UCAR).
+
 
 ```{r}
 nc1 = nc_open("datos/sst.nc4")
@@ -51,6 +60,23 @@ lon = ncvar_get(nc1, "longitude") - 360
 ```
 
 
+#2.1.2 Variables Bióticas
+
+Como proxy de productividad y distribución de los organismos se tomara las variables espacial clorofila y fitoplancton (phy) y Teniendo la misma fuente de datos, y el mismo formato. 
+
+# 2.2 Métodos
+
+#2.2.1 Paquetes y Software
+Para la realización de los análisis se usó el paquete estadístico R y los paquetes de R: markdown, kali, ncdf4 y fields. Para el análisis interactivo de texto, utilización de  mapas y gráficas.
+
+# 2.2.2 Análisis exploratorio de las Variables:
+
+•	Se realizaron comparaciones entre los promedios totales de las variables y las anomalias.
+o	Las anomalias se definieron como: Anomalias=Promedio(todos los años)-Promedio(año 1988).
+
+
+
+##III  Resultados y discusión
 ```{r}
 sst_mean=apply(sst[,,1:552], MARGIN = c(1,2), FUN = mean, na.rm = TRUE)
 sst_1991=apply(sst[,,349:360], MARGIN = c(1,2), FUN = mean, na.rm = TRUE)
@@ -59,16 +85,14 @@ image.map(lon, lat, anom_sst)
 title("Anomalia de la SST año 1988")
 ```
 
-## Resultados y discusión
 
+##IV Conclusiones
 
+##V Referencias Bibliograficas
+•	UNIDATA, Data services and tolos for geoscience, Fuente de datos en formato NETCDF, extraído de https://www.unidata.ucar.edu/software/netcdf/.
+•	PENNINGTON, J.T.et. al. 2006. Primary production in the eastern tropical Pacific: A review. Prog. Oceanogr. 69, 285–317.
+•	HAURY, L. R., J. A. MCGOWAN, AND P. H. WIEBE. 1978. Patterns and processes in the time-space scales of plankton distribution, p. 277-327. EnJ. H. Steele [ed.], Spatial patterns in plankton communities. 
 
-```{r}
-image.map(lon, lat, sst[,,1])
-```
+•	CURY, P. & C. ROY. 1989. Optimal environmental window and pelagic fish recruitment sucessin upwelling areas. Can. J. Fish. Aquat. Sci., 46:670-680.
 
-
-## Conclusiones
-
-## Referencias
 

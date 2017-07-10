@@ -17,16 +17,16 @@ library(fields)
 library(kali)
 ```
 
---------
-I Introducción
+
+#I Introducción
 
 Los diferentes procesos biológicos y ecológicos en el océano, son determinados por varios drivers ambientales en diferente escala espacio temporal (Haury, et. al., 1978).
 Por ejemplo la temperatura superficial del mar, la salinidad, los vientos afectan directa e indirectamente la productividad primaria, y la distribución espacial de diferentes especies u organismos. Los organismos presentan rangos óptimos y no óptimos de su presencia en función de las variables ambientales, “llamada Ventana ambiental” siendo necesario el entendimiento de dicha relación (Cury and Roy, 1989).
- Se justifica entonces la necesidad de caracterizar el ambiente, por lo que el objetivo del presente estudio es caracterizar y analizar la temperatura superficial del mar, la salinidad y la clorofila del año 1988, como punto de partida para entender la variación espacial anual, estacional de la productividad, mediante un proxy que es la concentración de clorofila a, del año 1988, post colapso de las pesquerías de la productividad (Pennington, et. Al., 2006)
+ Se justifica entonces la necesidad de caracterizar el ambiente, por lo que el objetivo del presente estudio es caracterizar y analizar la temperatura superficial del mar, la salinidad y la productividad media dusrante los ultimo 50 años, y su relacion con el año 1988, como punto de partida para entender la variación espacial anual, estacional de la productividad, mediante un proxy que es la concentración de fitoplancton, productividad primaria que sostiene a las  pesquerías importantes(Pennington, et. Al., 2006)
 
 
 
-II Materiales y métodos
+#II Materiales y métodos
 
 ##2.1 Materiales 
 
@@ -67,7 +67,7 @@ Para la realización de los análisis se usó el paquete estadístico R y los pa
 	
 	
 
-III  Resultados y discusión
+#III  Resultados y discusión
 
 ###Temperatura promedio, minimos, maximos y desviacion estandar
 La estimacion se realiza teniendo el periodo de tiempo de 1959 hasta el 2005
@@ -85,19 +85,19 @@ par(mfrow=c(2,2))
 
 sst_promedio=apply(sst[,,1:552], MARGIN = c(1,2), FUN=mean, na.rm = TRUE)
 image.map(lon, lat, sst_promedio)
-title("PROMEDIO SST° 1959-2005")
+title("PROMEDIO SST 1959-2005")
 
 sst_sd=apply(sst[,,1:552], MARGIN = c(1,2), FUN=sd, na.rm = TRUE)
 image.map(lon, lat, sst_sd)
-title("SD SST° 1959-2005")
+title("SD SST 1959-2005")
 
 sst_max=apply(sst[,,1:552], MARGIN = c(1,2), FUN=max, na.rm = FALSE)
 image.map(lon, lat, sst_max)
-title("Maximos SST° 1959-2005")
+title("Maximos SST 1959-2005")
 
 sst_min=apply(sst[,,1:552], MARGIN = c(1,2), FUN=min, na.rm = FALSE)
 image.map(lon, lat, sst_min)
-title("Minimos SST° 1959-2005")
+title("Minimos SST 1959-2005")
 
 ```
 
@@ -111,10 +111,10 @@ anomalia_sst=sst_promedio-sst_1988
 
 par(mfrow=c(1,3))
 image.map(lon, lat, sst_promedio)
-title("PROMEDIO SST° 1959-2005")
+title("PROMEDIO SST 1959-2005")
 
 image.map(lon, lat, sst_1988)
-title("PROMEDIO SST° 1988")
+title("PROMEDIO SST 1988")
 
 image.map(lon, lat, anomalia_sst)
 title("Anomalías SST año 1988")
@@ -143,7 +143,7 @@ par(mfrow=c(2,2))
 
 sss_promedio=apply(sss[,,1:552], MARGIN = c(1,2), FUN=mean, na.rm = TRUE)
 image.map(lon, lat, sss_promedio)
-title("PROMEDIO sss° 1959-2005")
+title("PROMEDIO sss 1959-2005")
 
 sss_sd=apply(sss[,,1:552], MARGIN = c(1,2), FUN=sd, na.rm = TRUE)
 image.map(lon, lat, sss_sd)
@@ -151,11 +151,11 @@ title("SD sss° 1959-2005")
 
 sss_max=apply(sss[,,1:552], MARGIN = c(1,2), FUN=max, na.rm = FALSE)
 image.map(lon, lat, sss_max)
-title("Maximos sss° 1959-2005")
+title("Maximos sss 1959-2005")
 
 sss_min=apply(sss[,,1:552], MARGIN = c(1,2), FUN=min, na.rm = FALSE)
 image.map(lon, lat, sss_min)
-title("Minimos sss° 1959-2005")
+title("Minimos sss 1959-2005")
 ```
 
 
@@ -181,7 +181,7 @@ title("Anomalías SSS año 1988")
 ```
 
 
-###varibilidad espacial de la productividad(fitoplancton grande)
+###Varibilidad espacial de la productividad(fitoplancton grande)
 
 ```{r}
 #variable lphy
@@ -224,10 +224,10 @@ anomalia_lphy=lphy_promedio-lphy_1988
 
 par(mfrow=c(1,3))
 image.map(lon, lat, lphy_promedio)
-title("PROMEDIO lphy° 1959-2005")
+title("PROMEDIO lphy 1959-2005")
 
 image.map(lon, lat, lphy_1988)
-title("PROMEDIO lphy° 1988")
+title("PROMEDIO lphy 1988")
 
 image.map(lon, lat, anomalia_lphy)
 title("Anomalías lphy año 1988")
@@ -236,7 +236,7 @@ title("Anomalías lphy año 1988")
 
 
 
-###varibilidad espacial de la productividad(fitoplancton pequeño)
+###Varibilidad espacial de la productividad(fitoplancton pequeño)
 
 ```{r}
 #variable sphy
@@ -251,7 +251,7 @@ par(mfrow=c(2,2))
 
 sphy_promedio=apply(sphy[,,1:552], MARGIN = c(1,2), FUN=mean, na.rm = TRUE)
 image.map(lon, lat, sphy_promedio)
-title("PROMEDIO sphy° 1959-2005")
+title("PROMEDIO sphy 1959-2005")
 
 sphy_sd=apply(sphy[,,1:552], MARGIN = c(1,2), FUN=sd, na.rm = TRUE)
 image.map(lon, lat, sphy_sd)
@@ -259,11 +259,11 @@ title("SD sphy° 1959-2005")
 
 sphy_max=apply(sphy[,,1:552], MARGIN = c(1,2), FUN=max, na.rm = FALSE)
 image.map(lon, lat, sphy_max)
-title("Maximos sphy° 1959-2005")
+title("Maximos sphy 1959-2005")
 
 sphy_min=apply(sphy[,,1:552], MARGIN = c(1,2), FUN=min, na.rm = FALSE)
 image.map(lon, lat, sphy_min)
-title("Minimos sphy° 1959-2005")
+title("Minimos sphy 1959-2005")
 ```
 
 
@@ -279,17 +279,17 @@ anomalia_sphy=sphy_promedio-sphy_1988
 
 par(mfrow=c(1,3))
 image.map(lon, lat, sphy_promedio)
-title("PROMEDIO sphy° 1959-2005")
+title("PROMEDIO sphy 1959-2005")
 
 image.map(lon, lat, sphy_1988)
-title("PROMEDIO sphy° 1988")
+title("PROMEDIO sphy 1988")
 
 image.map(lon, lat, anomalia_sphy)
 title("Anomalías sphy año 1988")
 ```
 
 
-# Sintesis final
+Sintesis final Anomalias
 
 ```{r}
 
@@ -310,16 +310,39 @@ title("Anomalías sphy año 1988")
 ```
 
 
-
-IV Conclusiones
-
+Sintesis final de los valores medios de todas las variables 
 
 
 
+```{r}
+
+par(mfrow=c(1,4))
+
+image.map(lon, lat, sss_promedio)
+title("PROMEDIO sss 1959-2005")
+
+image.map(lon, lat, sst_promedio)
+title("PROMEDIO SST 1959-2005")
+
+image.map(lon, lat, lphy_promedio)
+title("PROMEDIO lphy 1959-2005")
+
+image.map(lon, lat, sphy_promedio)
+title("PROMEDIO sphy 1959-2005")
+```
+
+# IV Conclusiones
+
+Los maximos aumentos de la temperatura se presentan en la zona central sur del Peru, no se correlaciona con el aumento de la productividad del fotaplancton grande y pequeño, que por el contrario en la zona sur disminuye
+
+
+La mayor productividad se presenta en la zona centro norte del pais,  donde existe un aumento de la temperaturaa, respecto al sur.
+
+Los promedios de las variables ambientales y productividad de los ultimos 50 años descritas en el presente estudio, tienen la misma tendencia que las año 1988.
 
 
 
-V Referencias Bibliograficas
+#V Referencias Bibliograficas
 
 ####•	UNIDATA, Data services and tolos for geoscience, Fuente de datos en formato NETCDF, extraído de https://www.unidata.ucar.edu/software/netcdf/.
 

@@ -18,7 +18,7 @@ library(kali)
 ```
 
 
-#I Introducción
+# I Introducción
 
 Los diferentes procesos biológicos y ecológicos en el océano, son determinados por varios drivers ambientales en diferente escala espacio temporal (Haury, et. al., 1978).
 Por ejemplo la temperatura superficial del mar, la salinidad, los vientos afectan directa e indirectamente la productividad primaria, y la distribución espacial de diferentes especies u organismos. Los organismos presentan rangos óptimos y no óptimos de su presencia en función de las variables ambientales, “llamada Ventana ambiental” siendo necesario el entendimiento de dicha relación (Cury and Roy, 1989).
@@ -26,11 +26,11 @@ Por ejemplo la temperatura superficial del mar, la salinidad, los vientos afecta
 
 
 
-#II Materiales y métodos
+# II Materiales y métodos
 
-##2.1 Materiales 
+## 2.1 Materiales 
 
-###2.1.1 Variables Ambientales
+### 2.1.1 Variables Ambientales
 Las variables para el análisis de las condiciones oceanográficas, que incluye datos de temperatura superficial del mar (sst), salinidad superficial del mar (sss) proporcionada del archivo netCDF Network Common Data Form a partir de Unidata que es parte de la Corporación Universitaria para la Investigación Atmosférica (UCAR).
 
 
@@ -40,7 +40,7 @@ nc2 = nc_open("datos/sss.nc4")
 ```
 
 
-###2.1.2 Variables Bióticas
+### 2.1.2 Variables Bióticas
 
 Como proxy de productividad y distribución de los organismos se tomara las variables espacial del fitoplancton pequeño(sphy) y grande(lphy), Teniendo la misma fuente de datos, y el mismo formato que los datos ambientales.
 siendo las variables las siguientes:
@@ -55,19 +55,19 @@ nc4 = nc_open("datos/sphy.nc4")
 ```
 
 
-##2.2 Métodos
+## 2.2 Métodos
 
-###2.2.1 Paquetes y Software
+### 2.2.1 Paquetes y Software
 Para la realización de los análisis se usó el paquete estadístico R y los paquetes de R: markdown, kali, ncdf4 y fields. Para el análisis interactivo de texto, utilización de  mapas y gráficas.
 
-###2.2.2 Análisis exploratorio de las Variables:
+### 2.2.2 Análisis exploratorio de las Variables:
 
 •	Se realizaron comparaciones entre los promedios totales de las variables y las anomalias.
 	Las anomalias se definieron como: Anomalias=Promedio(todos los años)-Promedio(año 1988).
 	
 	
 
-#III  Resultados y discusión
+# III Resultados y discusión
 
 ###Temperatura promedio, minimos, maximos y desviacion estandar
 La estimacion se realiza teniendo el periodo de tiempo de 1959 hasta el 2005
@@ -342,7 +342,7 @@ Los promedios de las variables ambientales y productividad de los ultimos 50 añ
 
 
 
-#V Referencias Bibliograficas
+# V Referencias Bibliograficas
 
 ####•	UNIDATA, Data services and tolos for geoscience, Fuente de datos en formato NETCDF, extraído de https://www.unidata.ucar.edu/software/netcdf/.
 
